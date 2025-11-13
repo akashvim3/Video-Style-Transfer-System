@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Demo - Video Style Transfer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                <span>VideoStyleAI</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="demo.html" class="active">Demo</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Demo Hero -->
+    <section class="demo-hero">
+        <div class="container">
+            <h1>🎨 Interactive Live Demo</h1>
+            <p>Experience AI-powered video style transfer in real-time</p>
+            <div class="demo-stats">
+                <div class="stat"><i class="fas fa-users"></i> <span>1,247 users online</span></div>
+                <div class="stat"><i class="fas fa-video"></i> <span>15,432 videos transformed today</span></div>
+                <div class="stat"><i class="fas fa-clock"></i> <span>Real-time processing</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Demo Section -->
+    <section class="quick-demo">
+        <div class="container">
+            <div class="demo-tabs">
+                <button class="tab-btn active" onclick="switchTab('webcam')">
+                    <i class="fas fa-camera"></i> Webcam Demo
+                </button>
+                <button class="tab-btn" onclick="switchTab('sample')">
+                    <i class="fas fa-play-circle"></i> Sample Videos
+                </button>
+                <button class="tab-btn" onclick="switchTab('upload')">
+                    <i class="fas fa-upload"></i> Upload Your Video
+                </button>
+            </div>
+
+            <!-- Webcam Demo Tab -->
+            <div class="tab-content active" id="webcam-tab">
+                <div class="demo-workspace">
+                    <div class="video-section">
+                        <div class="video-container">
+                            <video id="demoVideo" autoplay playsinline></video>
+                            <div class="video-controls">
+                                <button class="control-btn" onclick="togglePlay()">
+                                    <i class="fas fa-play" id="playIcon"></i>
+                                </button>
+                                <div class="time-display">
+                                    <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="demoCanvas"></canvas>
+                            <div class="comparison-slider" id="comparisonSlider">
+                                <label for="compareSlider"></label><input type="range" min="0" max="100" value="50" class="slider" id="compareSlider">
+                                <div class="slider-button">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                </div>
+                            </div>
+                            <div class="canvas-overlay">
+                                <span class="label">Stylized Output</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Style Selection Panel -->
+                    <div class="style-panel">
+                        <h3><i class="fas fa-palette"></i> Choose Your Style</h3>
+                        <div class="style-carousel">
+                            <button class="carousel-btn prev" onclick="scrollStyles(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="styles-container" id="stylesContainer">
+                                <div class="style-card" data-style="starry-night" onclick="applyQuickStyle('starry-night')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/300px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Starry Night">
+                                    <div class="style-info">
+                                        <h4>Starry Night</h4>
+                                        <p>Van Gogh's swirling masterpiece</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(4.9)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-card" data-style="scream" onclick="applyQuickStyle('scream')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/300px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="The Scream">
+                                    <div class="style-info">
+                                        <h4>The Scream</h4>
+                                        <p>Munch's expressionist icon</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span>(4.7)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-card" data-style="wave" onclick="applyQuickStyle('wave')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/The_Great_Wave_off_Kanagawa.jpg/300px-The_Great_Wave_off_Kanagawa.jpg" alt="Great Wave">
+                                    <div class="style-info">
+                                        <h4>Great Wave</h4>
+                                        <p>Hokusai's iconic woodblock</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(4.8)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-card" data-style="picasso" onclick="applyQuickStyle('picasso')">
+                                    <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=300&h=300&fit=crop" alt="Cubist">
+                                    <div class="style-info">
+                                        <h4>Cubist Style</h4>
+                                        <p>Picasso-inspired geometric art</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span>(4.6)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-card" data-style="monet" onclick="applyQuickStyle('monet')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Claude_Monet%2C_Impression%2C_soleil_levant.jpg/300px-Claude_Monet%2C_Impression%2C_soleil_levant.jpg" alt="Impressionist">
+                                    <div class="style-info">
+                                        <h4>Impressionist</h4>
+                                        <p>Monet's dreamy technique</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(4.9)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-card" data-style="kandinsky" onclick="applyQuickStyle('kandinsky')">
+                                    <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=300&h=300&fit=crop" alt="Abstract">
+                                    <div class="style-info">
+                                        <h4>Abstract Art</h4>
+                                        <p>Kandinsky-inspired composition</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <span>(4.5)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="style-card new" data-style="ukiyo" onclick="applyQuickStyle('ukiyo')">
+                                    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=300&h=300&fit=crop" alt="Ukiyo-e">
+                                    <div class="style-info">
+                                        <h4>Ukiyo-e</h4>
+                                        <p>Japanese woodblock prints</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span>(4.7)</span>
+                                        </div>
+                                    </div>
+                                    <span class="new-badge">NEW</span>
+                                </div>
+                                <div class="style-card new" data-style="watercolor" onclick="applyQuickStyle('watercolor')">
+                                    <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?w=300&h=300&fit=crop" alt="Watercolor">
+                                    <div class="style-info">
+                                        <h4>Watercolor</h4>
+                                        <p>Soft, flowing watercolor style</p>
+                                        <div class="style-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(4.8)</span>
+                                        </div>
+                                    </div>
+                                    <span class="new-badge">NEW</span>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" onclick="scrollStyles(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Advanced Controls -->
+                        <div class="advanced-controls">
+                            <div class="control-section">
+                                <h4><i class="fas fa-sliders-h"></i> Advanced Settings</h4>
+                                <div class="control-row">
+                                    <label>Style Intensity</label>
+                                    <label for="intensitySlider"></label><input type="range" min="0" max="100" value="80" class="range-slider" id="intensitySlider">
+                                    <span class="value-display" id="intensityValue">80%</span>
+                                </div>
+                                <div class="control-row">
+                                    <label>Edge Preservation</label>
+                                    <label for="edgeSlider"></label><input type="range" min="0" max="100" value="50" class="range-slider" id="edgeSlider">
+                                    <span class="value-display" id="edgeValue">50%</span>
+                                </div>
+                                <div class="control-row">
+                                    <label>Color Saturation</label>
+                                    <label for="saturationSlider"></label><input type="range" min="0" max="200" value="100" class="range-slider" id="saturationSlider">
+                                    <span class="value-display" id="saturationValue">100%</span>
+                                </div>
+                                <div class="control-row">
+                                    <label>Texture Detail</label>
+                                    <label for="textureSlider"></label><input type="range" min="0" max="100" value="60" class="range-slider" id="textureSlider">
+                                    <span class="value-display" id="textureValue">60%</span>
+                                </div>
+                            </div>
+
+                            <!-- Quick Presets -->
+                            <div class="presets-section">
+                                <h4><i class="fas fa-magic"></i> Quick Presets</h4>
+                                <div class="preset-buttons">
+                                    <button class="preset-btn" onclick="applyPreset('subtle')">
+                                        <i class="fas fa-feather"></i> Subtle
+                                    </button>
+                                    <button class="preset-btn" onclick="applyPreset('balanced')">
+                                        <i class="fas fa-balance-scale"></i> Balanced
+                                    </button>
+                                    <button class="preset-btn" onclick="applyPreset('intense')">
+                                        <i class="fas fa-fire"></i> Intense
+                                    </button>
+                                    <button class="preset-btn" onclick="applyPreset('artistic')">
+                                        <i class="fas fa-palette"></i> Artistic
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="action-section">
+                                <button class="btn btn-primary btn-large" onclick="startDemoTransfer()">
+                                    <i class="fas fa-play"></i> Start Processing
+                                </button>
+                                <button class="btn btn-success" onclick="recordVideo()">
+                                    <i class="fas fa-record-vinyl"></i> Record Video
+                                </button>
+                                <button class="btn btn-info" onclick="captureSnapshot()">
+                                    <i class="fas fa-camera"></i> Capture
+                                </button>
+                                <button class="btn btn-secondary" onclick="resetDemo()">
+                                    <i class="fas fa-redo"></i> Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Statistics -->
+                <div class="live-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Processing FPS</span>
+                            <span class="stat-value" id="liveFPS">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Latency</span>
+                            <span class="stat-value" id="liveLatency">0ms</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-memory"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">GPU Usage</span>
+                            <span class="stat-value" id="gpuUsage">0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-info">
+                            <span class="stat-label">Quality Score</span>
+                            <span class="stat-value" id="qualityScore">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Videos Tab -->
+            <div class="tab-content" id="sample-tab">
+                <div class="sample-videos-grid">
+                    <div class="sample-card" onclick="loadSampleVideo('portrait')">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop" alt="Portrait Sample">
+                        <div class="sample-info">
+                            <h4>Portrait Demo</h4>
+                            <p>See how styles transform portraits</p>
+                            <button class="btn btn-small btn-primary">
+                                <i class="fas fa-play"></i> Try This
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sample-card" onclick="loadSampleVideo('landscape')">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Landscape Sample">
+                        <div class="sample-info">
+                            <h4>Landscape Demo</h4>
+                            <p>Transform scenic landscapes</p>
+                            <button class="btn btn-small btn-primary">
+                                <i class="fas fa-play"></i> Try This
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sample-card" onclick="loadSampleVideo('urban')">
+                        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=300&fit=crop" alt="Urban Sample">
+                        <div class="sample-info">
+                            <h4>Urban Scene</h4>
+                            <p>Stylize city and architecture</p>
+                            <button class="btn btn-small btn-primary">
+                                <i class="fas fa-play"></i> Try This
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sample-card" onclick="loadSampleVideo('nature')">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop" alt="Nature Sample">
+                        <div class="sample-info">
+                            <h4>Nature Scene</h4>
+                            <p>Apply styles to natural beauty</p>
+                            <button class="btn btn-small btn-primary">
+                                <i class="fas fa-play"></i> Try This
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sample-card" onclick="loadSampleVideo('pet')">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=300&fit=crop" alt="Pet Sample">
+                        <div class="sample-info">
+                            <h4>Pet Video</h4>
+                            <p>Transform your furry friends</p>
+                            <button class="btn btn-small btn-primary">
+                                <i class="fas fa-play"></i> Try This
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sample-card" onclick="loadSampleVideo('sports')">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop" alt="Sports Sample">
+                        <div class="sample-info">
+                            <h4>Action/Sports</h4>
+                            <p>Stylize dynamic movements</p>
+                            <button class="btn btn-small btn-primary">
+                                <i class="fas fa-play"></i> Try This
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Tab -->
+            <div class="tab-content" id="upload-tab">
+                <div class="upload-zone" id="uploadZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drop your video here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="videoFileInput" accept="video/*" hidden>
+                    <div class="upload-specs">
+                        <span><i class="fas fa-check"></i> MP4, MOV, AVI supported</span>
+                        <span><i class="fas fa-check"></i> Max 500MB</span>
+                        <span><i class="fas fa-check"></i> Up to 4K resolution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="demo-tips">
+        <div class="container">
+            <h2>💡 Pro Tips for Best Results</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Good Lighting</h4>
+                    <p>Ensure your scene is well-lit for better style transfer results</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-video-slash"></i>
+                    <h4>Stable Camera</h4>
+                    <p>Use a tripod or stable surface for smoother processing</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-adjust"></i>
+                    <h4>Contrast Scenes</h4>
+                    <p>High-contrast scenes produce more dramatic artistic effects</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-palette"></i>
+                    <h4>Experiment</h4>
+                    <p>Try different styles and intensity levels to find your perfect look</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-video"></i> VideoStyleAI</h3>
+                    <p>Advanced AI-powered video style transfer for creative professionals and enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="api.html">API Reference</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VideoStyleAI. All rights reserved. Powered by Akash</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+            <i class="fas fa-chevron-down" id="chatbotToggle"></i>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <i class="fas fa-robot"></i>
+                    <p>Hello! Need help with the demo? I'm here to assist!</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <label for="chatInput"></label><input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbot-trigger" onclick="openChatbot()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/styleTransfer.js"></script>
+    <script src="assets/js/recorder.js"></script>
+    <script src="assets/js/filters.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/demo.js"></script>
+</body>
+</html>

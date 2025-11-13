@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center - Video Style Transfer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                <span>VideoStyleAI</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="support.html" class="active">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Support Header -->
+    <section class="support-header">
+        <div class="container">
+            <h1>🛟 Support Center</h1>
+            <p>We're here to help you succeed with VideoStyleAI</p>
+            <div class="support-search">
+                <i class="fas fa-search"></i>
+                <label>
+                    <input type="text" placeholder="Search for help articles...">
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Options -->
+    <section class="support-options">
+        <div class="container">
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive guides and tutorials</p>
+                    <a href="docs.html" class="btn btn-secondary">Browse Docs</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team</p>
+                    <button class="btn btn-primary" onclick="openChatbot()">Start Chat</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Get help via email within 24 hours</p>
+                    <a href="mailto:support@videostyleai.com" class="btn btn-secondary">Send Email</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Forum</h3>
+                    <p>Connect with other users</p>
+                    <a href="#" class="btn btn-secondary">Visit Forum</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Issues -->
+    <section class="common-issues">
+        <div class="container">
+            <h2 class="section-title">Common Issues & Solutions</h2>
+
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-header">
+                        <i class="fas fa-camera"></i>
+                        <h3>Camera Not Working</h3>
+                    </div>
+                    <div class="issue-content">
+                        <p><strong>Problem:</strong> Webcam not detected or permission denied</p>
+                        <p><strong>Quick Fix:</strong></p>
+                        <ol>
+                            <li>Check browser permissions (Settings → Privacy → Camera)</li>
+                            <li>Ensure no other app is using the camera</li>
+                            <li>Refresh page and allow permissions</li>
+                            <li>Try using Chrome browser</li>
+                        </ol>
+                        <a href="docs.html#troubleshooting" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <div class="issue-header">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Slow Performance</h3>
+                    </div>
+                    <div class="issue-content">
+                        <p><strong>Problem:</strong> Low FPS or laggy video processing</p>
+                        <p><strong>Quick Fix:</strong></p>
+                        <ol>
+                            <li>Close unnecessary browser tabs</li>
+                            <li>Reduce video resolution to 720p</li>
+                            <li>Lower style intensity to 60%</li>
+                            <li>Enable hardware acceleration</li>
+                        </ol>
+                        <a href="docs.html#troubleshooting" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <div class="issue-header">
+                        <i class="fas fa-download"></i>
+                        <h3>Export Issues</h3>
+                    </div>
+                    <div class="issue-content">
+                        <p><strong>Problem:</strong> Can't download or save videos</p>
+                        <p><strong>Quick Fix:</strong></p>
+                        <ol>
+                            <li>Check available disk space</li>
+                            <li>Disable browser extensions</li>
+                            <li>Try different quality setting</li>
+                            <li>Use incognito mode</li>
+                        </ol>
+                        <a href="docs.html#troubleshooting" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="issue-card">
+                    <div class="issue-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Styles Not Applying</h3>
+                    </div>
+                    <div class="issue-content">
+                        <p><strong>Problem:</strong> No visible style changes</p>
+                        <p><strong>Quick Fix:</strong></p>
+                        <ol>
+                            <li>Increase style intensity slider</li>
+                            <li>Ensure processing is started</li>
+                            <li>Check WebGL is enabled</li>
+                            <li>Clear cache and reload</li>
+                        </ol>
+                        <a href="docs.html#troubleshooting" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="support-faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-categories">
+                <button class="faq-category active" data-category="all">All</button>
+                <button class="faq-category" data-category="account">Account</button>
+                <button class="faq-category" data-category="billing">Billing</button>
+                <button class="faq-category" data-category="technical">Technical</button>
+                <button class="faq-category" data-category="features">Features</button>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>How do I create an account?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Click "Sign Up" in the top right corner and follow these steps:</p>
+                        <ol>
+                            <li>Enter your email address</li>
+                            <li>Create a secure password</li>
+                            <li>Verify your email (check spam folder if needed)</li>
+                            <li>Complete your profile</li>
+                        </ol>
+                        <p>You can start using the free plan immediately after verification.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="billing">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>How do I upgrade my plan?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To upgrade your plan:</p>
+                        <ol>
+                            <li>Go to Settings → Billing</li>
+                            <li>Click "Upgrade Plan"</li>
+                            <li>Choose Pro or Enterprise</li>
+                            <li>Enter payment information</li>
+                            <li>Confirm upgrade</li>
+                        </ol>
+                        <p>Your upgrade takes effect immediately, and you'll be charged pro-rated for the current billing cycle.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="billing">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept the following payment methods:</p>
+                        <ul>
+                            <li>Credit cards (Visa, MasterCard, American Express, Discover)</li>
+                            <li>Debit cards</li>
+                            <li>PayPal</li>
+                            <li>Bank transfers (Enterprise only)</li>
+                        </ul>
+                        <p>All payments are processed securely through Stripe.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>What browsers are supported?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VideoStyleAI works best on modern browsers:</p>
+                        <ul>
+                            <li><strong>Chrome 90+</strong> (Recommended) - Full support</li>
+                            <li><strong>Firefox 88+</strong> - Full support</li>
+                            <li><strong>Edge 90+</strong> - Full support</li>
+                            <li><strong>Safari 14+</strong> - Limited support</li>
+                            <li><strong>Opera 76+</strong> - Full support</li>
+                        </ul>
+                        <p>WebGL support is required for video processing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Is my video data secure?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Your privacy and security are our top priorities:</p>
+                        <ul>
+                            <li>All processing happens locally in your browser</li>
+                            <li>Videos never leave your device</li>
+                            <li>We don't collect, store, or transmit video data</li>
+                            <li>No server uploads required</li>
+                            <li>Zero data tracking</li>
+                        </ul>
+                        <p>Read our <a href="privacy.html">Privacy Policy</a> for complete details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="features">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>What video formats are supported?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support most common video formats:</p>
+                        <ul>
+                            <li><strong>MP4</strong> (recommended)</li>
+                            <li><strong>MOV</strong></li>
+                            <li><strong>AVI</strong></li>
+                            <li><strong>WebM</strong></li>
+                        </ul>
+                        <p><strong>Maximum file sizes:</strong></p>
+                        <ul>
+                            <li>Free: 100MB</li>
+                            <li>Pro: 500MB</li>
+                            <li>Enterprise: 2GB</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="features">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Can I use stylized videos commercially?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You retain full rights to videos created with VideoStyleAI:</p>
+                        <ul>
+                            <li>Use for personal or commercial projects</li>
+                            <li>No attribution required (though appreciated)</li>
+                            <li>Sell or distribute stylized content</li>
+                            <li>Use in client work</li>
+                        </ul>
+                        <p>See our <a href="terms.html">Terms of Service</a> for complete usage rights.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="billing">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Can I cancel my subscription anytime?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can cancel your subscription at any time:</p>
+                        <ol>
+                            <li>Go to Settings → Billing</li>
+                            <li>Click "Cancel Subscription"</li>
+                            <li>Confirm cancellation</li>
+                        </ol>
+                        <p>You'll retain access until the end of your current billing period. No refunds for partial months, but you can reactivate anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="contact-support">
+        <div class="container">
+            <h2>Still Need Help?</h2>
+            <p>Our support team is here for you</p>
+
+            <div class="support-channels">
+                <div class="channel">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Support</h4>
+                    <p>support@videostyleai.com</p>
+                    <p class="response-time">Response within 24 hours</p>
+                </div>
+                <div class="channel">
+                    <i class="fas fa-comments"></i>
+                    <h4>Live Chat</h4>
+                    <p>Available 24/7</p>
+                    <button class="btn btn-primary" onclick="openChatbot()">Start Chat</button>
+                </div>
+                <div class="channel">
+                    <i class="fas fa-phone"></i>
+                    <h4>Enterprise Support</h4>
+                    <p>+1 (555) 123-4567</p>
+                    <p class="response-time">Mon-Fri, 9AM-6PM PST</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Status -->
+    <section class="system-status">
+        <div class="container">
+            <h2 class="section-title">System Status</h2>
+            <div class="status-grid">
+                <div class="status-item operational">
+                    <div class="status-indicator"></div>
+                    <div class="status-info">
+                        <h4>Web Application</h4>
+                        <p>All systems operational</p>
+                    </div>
+                </div>
+                <div class="status-item operational">
+                    <div class="status-indicator"></div>
+                    <div class="status-info">
+                        <h4>API Services</h4>
+                        <p>All systems operational</p>
+                    </div>
+                </div>
+                <div class="status-item operational">
+                    <div class="status-indicator"></div>
+                    <div class="status-info">
+                        <h4>Video Processing</h4>
+                        <p>All systems operational</p>
+                    </div>
+                </div>
+                <div class="status-item operational">
+                    <div class="status-indicator"></div>
+                    <div class="status-info">
+                        <h4>CDN & Storage</h4>
+                        <p>All systems operational</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="status-link">View detailed status page →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-video"></i> VideoStyleAI</h3>
+                    <p>Advanced AI-powered video style transfer for creative professionals and enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="api.html">API Reference</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VideoStyleAI. All rights reserved. Powered by Akash</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+            <i class="fas fa-chevron-down" id="chatbotToggle"></i>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <i class="fas fa-robot"></i>
+                    <p>Hello! How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <label for="chatInput"></label><input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbot-trigger" onclick="openChatbot()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // FAQ category filtering
+        document.querySelectorAll('.faq-category').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.faq-category').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

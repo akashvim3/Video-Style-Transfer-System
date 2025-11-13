@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Style Transfer - AI Powered Artistic Video Transformation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.2.0"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                <span>VideoStyleAI</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Your Videos with <span class="gradient-text">AI-Powered Style Transfer</span></h1>
+                <p class="hero-subtitle">Apply stunning artistic styles to live video feeds in real-time using advanced neural networks</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToTransfer()">
+                        <i class="fas fa-play-circle"></i> Start Transforming
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.location.href='about.html'">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=600&fit=crop" alt="AI Video Processing">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Real-Time Processing</h3>
+                    <p>Apply artistic styles to your webcam or uploaded videos instantly with optimized neural networks</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Multiple Art Styles</h3>
+                    <p>Choose from famous paintings including Van Gogh, Picasso, Monet, and modern abstract styles</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Style Intensity Control</h3>
+                    <p>Adjust the strength of style transfer with precision controls for perfect artistic balance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Style Blending</h3>
+                    <p>Combine multiple artistic styles to create unique and personalized video transformations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Export & Save</h3>
+                    <p>Download your stylized videos and frames in high quality for sharing and archiving</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Fully Responsive</h3>
+                    <p>Works seamlessly across all devices - desktop, tablet, and mobile platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Style Transfer Section -->
+    <section class="transfer-section" id="transferSection">
+        <div class="container">
+            <h2 class="section-title">Video Style Transfer Studio</h2>
+            <p class="section-subtitle">Transform your videos with AI-powered artistic styles</p>
+
+            <div class="transfer-container">
+                <!-- Video Source Selection -->
+                <div class="source-selector">
+                    <h3>Select Video Source</h3>
+                    <div class="source-buttons">
+                        <button class="source-btn active" id="webcamBtn" onclick="selectSource('webcam')">
+                            <i class="fas fa-camera"></i> Webcam
+                        </button>
+                        <button class="source-btn" id="uploadBtn" onclick="selectSource('upload')">
+                            <i class="fas fa-upload"></i> Upload Video
+                        </button>
+                    </div>
+                    <input type="file" id="videoUpload" accept="video/*" style="display: none;">
+                </div>
+
+                <!-- Style Selection -->
+                <div class="style-selector">
+                    <h3>Choose Artistic Style</h3>
+                    <div class="styles-grid" id="stylesGrid">
+                        <div class="style-item" data-style="starry-night" onclick="selectStyle('starry-night')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/300px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Starry Night">
+                            <div class="style-name">Starry Night</div>
+                        </div>
+                        <div class="style-item" data-style="scream" onclick="selectStyle('scream')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/300px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="The Scream">
+                            <div class="style-name">The Scream</div>
+                        </div>
+                        <div class="style-item" data-style="wave" onclick="selectStyle('wave')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/The_Great_Wave_off_Kanagawa.jpg/300px-The_Great_Wave_off_Kanagawa.jpg" alt="Great Wave">
+                            <div class="style-name">Great Wave</div>
+                        </div>
+                        <div class="style-item" data-style="picasso" onclick="selectStyle('picasso')">
+                            <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=300&h=300&fit=crop" alt="Cubist Style">
+                            <div class="style-name">Cubist</div>
+                        </div>
+                        <div class="style-item" data-style="monet" onclick="selectStyle('monet')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Claude_Monet%2C_Impression%2C_soleil_levant.jpg/300px-Claude_Monet%2C_Impression%2C_soleil_levant.jpg" alt="Impressionist">
+                            <div class="style-name">Impressionist</div>
+                        </div>
+                        <div class="style-item" data-style="kandinsky" onclick="selectStyle('kandinsky')">
+                            <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=300&h=300&fit=crop" alt="Abstract">
+                            <div class="style-name">Abstract</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Display -->
+                <div class="video-display">
+                    <div class="video-wrapper">
+                        <div class="video-box">
+                            <h4>Original Video</h4>
+                            <video id="originalVideo" autoplay playsinline></video>
+                            <canvas id="originalCanvas" style="display: none;"></canvas>
+                        </div>
+                        <div class="video-box">
+                            <h4>Stylized Video</h4>
+                            <canvas id="stylizedCanvas"></canvas>
+                            <div class="processing-indicator" id="processingIndicator">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Processing...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="transfer-controls">
+                    <div class="control-group">
+                        <label for="styleIntensity">
+                            <i class="fas fa-adjust"></i> Style Intensity: <span id="intensityValue">0.8</span>
+                        </label>
+                        <input type="range" id="styleIntensity" min="0" max="1" step="0.1" value="0.8">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="blendStyle">
+                            <i class="fas fa-layer-group"></i> Blend with Second Style
+                        </label>
+                        <select id="blendStyle">
+                            <option value="none">None</option>
+                            <option value="starry-night">Starry Night</option>
+                            <option value="scream">The Scream</option>
+                            <option value="wave">Great Wave</option>
+                            <option value="picasso">Cubist</option>
+                            <option value="monet">Impressionist</option>
+                            <option value="kandinsky">Abstract</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="blendRatio">
+                            <i class="fas fa-balance-scale"></i> Blend Ratio: <span id="blendValue">0.5</span>
+                        </label>
+                        <input type="range" id="blendRatio" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="startBtn" onclick="startTransfer()">
+                            <i class="fas fa-play"></i> Start Transfer
+                        </button>
+                        <button class="btn btn-danger" id="stopBtn" onclick="stopTransfer()" disabled>
+                            <i class="fas fa-stop"></i> Stop
+                        </button>
+                        <button class="btn btn-success" id="captureBtn" onclick="captureFrame()" disabled>
+                            <i class="fas fa-camera"></i> Capture Frame
+                        </button>
+                        <button class="btn btn-info" id="downloadBtn" onclick="downloadVideo()" disabled>
+                            <i class="fas fa-download"></i> Download Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Status Info -->
+                <div class="status-info">
+                    <div class="status-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>FPS: <strong id="fpsCounter">0</strong></span>
+                    </div>
+                    <div class="status-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Processing Time: <strong id="processingTime">0ms</strong></span>
+                    </div>
+                    <div class="status-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Status: <strong id="statusText">Ready</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Videos Transformed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Art Styles Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-video"></i> VideoStyleAI</h3>
+                    <p>Advanced AI-powered video style transfer for creative professionals and enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="api.html">API Reference</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VideoStyleAI. All rights reserved. Powered by Akash</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+            <i class="fas fa-chevron-down" id="chatbotToggle"></i>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <i class="fas fa-robot"></i>
+                    <p>Hello! I'm your AI assistant. How can I help you with video style transfer today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <label for="chatInput"></label><input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbot-trigger" onclick="openChatbot()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/styleTransfer.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

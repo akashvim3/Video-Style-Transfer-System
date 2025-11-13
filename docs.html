@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Video Style Transfer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                <span>VideoStyleAI</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="docs.html" class="active">Docs</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Header -->
+    <section class="docs-header">
+        <div class="container">
+            <h1>📚 Documentation</h1>
+            <p>Complete guide to using VideoStyleAI</p>
+            <div class="docs-search">
+                <i class="fas fa-search"></i>
+                <label for="docsSearch"></label><input type="text" id="docsSearch" placeholder="Search documentation...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section class="docs-content">
+        <div class="container">
+            <div class="docs-layout">
+                <!-- Sidebar Navigation -->
+                <aside class="docs-sidebar">
+                    <h3>Documentation</h3>
+                    <ul class="docs-menu">
+                        <li class="active">
+                            <a href="#getting-started"><i class="fas fa-rocket"></i> Getting Started</a>
+                        </li>
+                        <li>
+                            <a href="#installation"><i class="fas fa-download"></i> Installation</a>
+                        </li>
+                        <li>
+                            <a href="#basic-usage"><i class="fas fa-play-circle"></i> Basic Usage</a>
+                        </li>
+                        <li>
+                            <a href="#styles"><i class="fas fa-palette"></i> Art Styles</a>
+                        </li>
+                        <li>
+                            <a href="#advanced"><i class="fas fa-cogs"></i> Advanced Features</a>
+                        </li>
+                        <li>
+                            <a href="#recording"><i class="fas fa-video"></i> Recording & Export</a>
+                        </li>
+                        <li>
+                            <a href="#filters"><i class="fas fa-adjust"></i> Filters & Effects</a>
+                        </li>
+                        <li>
+                            <a href="#troubleshooting"><i class="fas fa-tools"></i> Troubleshooting</a>
+                        </li>
+                        <li>
+                            <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#api-reference"><i class="fas fa-code"></i> API Reference</a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Main Documentation -->
+                <main class="docs-main">
+                    <!-- Getting Started -->
+                    <section id="getting-started" class="doc-section">
+                        <h2>Getting Started</h2>
+                        <p class="lead">Welcome to VideoStyleAI! This guide will help you start transforming your videos with AI-powered artistic styles in minutes.</p>
+
+                        <div class="doc-card">
+                            <h3>What is VideoStyleAI?</h3>
+                            <p>VideoStyleAI is a powerful web application that applies artistic styles from famous paintings to live video feeds in real-time. Using advanced neural networks powered by TensorFlow.js, you can transform ordinary videos into stunning works of art.</p>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li><strong>Real-Time Processing:</strong> Apply styles to live video at 15-60 FPS</li>
+                                <li><strong>8+ Art Styles:</strong> Van Gogh, Munch, Hokusai, Picasso, and more</li>
+                                <li><strong>Style Blending:</strong> Combine multiple styles for unique effects</li>
+                                <li><strong>Advanced Filters:</strong> 10+ professional image filters</li>
+                                <li><strong>Recording & Export:</strong> Save stylized videos up to 8K resolution</li>
+                                <li><strong>Privacy-First:</strong> All processing happens in your browser</li>
+                            </ul>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Requirements</h3>
+                            <div class="requirements-grid">
+                                <div class="requirement">
+                                    <i class="fas fa-browser"></i>
+                                    <h4>Browser</h4>
+                                    <p>Chrome 90+, Firefox 88+, Edge 90+</p>
+                                </div>
+                                <div class="requirement">
+                                    <i class="fas fa-memory"></i>
+                                    <h4>Memory</h4>
+                                    <p>Minimum 4GB RAM</p>
+                                </div>
+                                <div class="requirement">
+                                    <i class="fas fa-microchip"></i>
+                                    <h4>GPU</h4>
+                                    <p>Recommended for best performance</p>
+                                </div>
+                                <div class="requirement">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Permissions</h4>
+                                    <p>Camera access (for webcam mode)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Installation -->
+                    <section id="installation" class="doc-section">
+                        <h2>Installation</h2>
+                        <p>VideoStyleAI runs entirely in your web browser - no installation required!</p>
+
+                        <div class="doc-card">
+                            <h3>Quick Start</h3>
+                            <div class="code-block">
+                                <pre><code>1. Visit https://videostyleai.com
+2. Click "Demo" in the navigation menu
+3. Allow camera permissions when prompted
+4. Select an artistic style
+5. Click "Start Processing"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Self-Hosting (Optional)</h3>
+                            <p>If you want to host VideoStyleAI on your own server:</p>
+                            <div class="code-block">
+                                <pre><code># Clone the repository
+git clone https://github.com/videostyleai/videostyleai.git
+
+# Navigate to directory
+cd videostyleai
+
+# Open in browser
+open index.html
+
+# Or serve with a local server
+python -m http.server 8000
+# Visit http://localhost:8000</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Note:</strong> Camera access requires HTTPS. Use a local development server or deploy to a secure hosting platform.
+                        </div>
+                    </section>
+
+                    <!-- Basic Usage -->
+                    <section id="basic-usage" class="doc-section">
+                        <h2>Basic Usage</h2>
+
+                        <div class="doc-card">
+                            <h3>Step 1: Select Video Source</h3>
+                            <p>Choose from three video input options:</p>
+                            <ul>
+                                <li><strong>Webcam:</strong> Use your computer's camera for live processing</li>
+                                <li><strong>Upload Video:</strong> Process pre-recorded video files (MP4, MOV, AVI)</li>
+                                <li><strong>Sample Videos:</strong> Try our demo videos to see examples</li>
+                            </ul>
+                            <div class="code-example">
+                                <p><strong>Supported formats:</strong> MP4, MOV, AVI, WebM</p>
+                                <p><strong>Maximum size:</strong> 500MB</p>
+                                <p><strong>Maximum duration:</strong> Unlimited (Pro/Enterprise)</p>
+                            </div>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Step 2: Choose Art Style</h3>
+                            <p>Browse the style carousel and click on your preferred artistic style:</p>
+                            <ul>
+                                <li><strong>Starry Night:</strong> Van Gogh's swirling, dreamy style</li>
+                                <li><strong>The Scream:</strong> Munch's bold expressionist approach</li>
+                                <li><strong>Great Wave:</strong> Hokusai's iconic Japanese woodblock style</li>
+                                <li><strong>Cubist:</strong> Picasso-inspired geometric transformation</li>
+                                <li><strong>Impressionist:</strong> Monet's soft, light-filled technique</li>
+                                <li><strong>Abstract:</strong> Kandinsky's colorful abstract composition</li>
+                                <li><strong>Ukiyo-e:</strong> Traditional Japanese art style</li>
+                                <li><strong>Watercolor:</strong> Soft, flowing watercolor effects</li>
+                            </ul>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Step 3: Adjust Settings</h3>
+                            <p>Fine-tune the transformation with these controls:</p>
+                            <table class="settings-table">
+                                <tr>
+                                    <th>Setting</th>
+                                    <th>Range</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr>
+                                    <td>Style Intensity</td>
+                                    <td>0-100%</td>
+                                    <td>How strongly the style is applied</td>
+                                </tr>
+                                <tr>
+                                    <td>Edge Preservation</td>
+                                    <td>0-100%</td>
+                                    <td>Maintain sharp edges in the video</td>
+                                </tr>
+                                <tr>
+                                    <td>Color Saturation</td>
+                                    <td>0-200%</td>
+                                    <td>Adjust color vibrancy</td>
+                                </tr>
+                                <tr>
+                                    <td>Texture Detail</td>
+                                    <td>0-100%</td>
+                                    <td>Control brushstroke texture level</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Step 4: Start Processing</h3>
+                            <p>Click the "Start Processing" button to begin the transformation. You'll see:</p>
+                            <ul>
+                                <li>Original video on the left</li>
+                                <li>Stylized video on the right</li>
+                                <li>Real-time performance metrics (FPS, latency)</li>
+                                <li>Processing status indicator</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Art Styles -->
+                    <section id="styles" class="doc-section">
+                        <h2>Art Styles Guide</h2>
+
+                        <div class="style-guide">
+                            <div class="style-item">
+                                <h3><i class="fas fa-star"></i> Starry Night</h3>
+                                <p><strong>Artist:</strong> Vincent van Gogh</p>
+                                <p><strong>Period:</strong> Post-Impressionism (1889)</p>
+                                <p><strong>Best for:</strong> Landscapes, night scenes, nature</p>
+                                <p><strong>Characteristics:</strong> Swirling brushstrokes, vibrant blues and yellows, dreamy atmosphere</p>
+                                <p><strong>Intensity recommendation:</strong> 70-90%</p>
+                            </div>
+
+                            <div class="style-item">
+                                <h3><i class="fas fa-exclamation"></i> The Scream</h3>
+                                <p><strong>Artist:</strong> Edvard Munch</p>
+                                <p><strong>Period:</strong> Expressionism (1893)</p>
+                                <p><strong>Best for:</strong> Portraits, dramatic scenes, emotional content</p>
+                                <p><strong>Characteristics:</strong> Bold colors, wavy lines, intense emotion</p>
+                                <p><strong>Intensity recommendation:</strong> 60-80%</p>
+                            </div>
+
+                            <div class="style-item">
+                                <h3><i class="fas fa-water"></i> Great Wave</h3>
+                                <p><strong>Artist:</strong> Katsushika Hokusai</p>
+                                <p><strong>Period:</strong> Edo Period (1831)</p>
+                                <p><strong>Best for:</strong> Water scenes, nature, landscapes</p>
+                                <p><strong>Characteristics:</strong> Bold outlines, flat colors, Japanese aesthetic</p>
+                                <p><strong>Intensity recommendation:</strong> 75-95%</p>
+                            </div>
+
+                            <div class="style-item">
+                                <h3><i class="fas fa-shapes"></i> Cubist</h3>
+                                <p><strong>Artist:</strong> Pablo Picasso</p>
+                                <p><strong>Period:</strong> Cubism (1907-1920s)</p>
+                                <p><strong>Best for:</strong> Geometric subjects, architecture, portraits</p>
+                                <p><strong>Characteristics:</strong> Fragmented forms, multiple perspectives, geometric shapes</p>
+                                <p><strong>Intensity recommendation:</strong> 65-85%</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Advanced Features -->
+                    <section id="advanced" class="doc-section">
+                        <h2>Advanced Features</h2>
+
+                        <div class="doc-card">
+                            <h3>Style Blending</h3>
+                            <p>Combine two artistic styles to create unique hybrid effects:</p>
+                            <div class="code-block">
+                                <pre><code>1. Select primary style (e.g., Starry Night)
+2. Choose "Blend with Second Style" dropdown
+3. Select secondary style (e.g., Impressionist)
+4. Adjust "Blend Ratio" slider (0-100%)
+   - 0% = Pure primary style
+   - 50% = Equal mix
+   - 100% = Pure secondary style</code></pre>
+                            </div>
+                            <p><strong>Popular combinations:</strong></p>
+                            <ul>
+                                <li>Starry Night (70%) + Impressionist (30%) = Dreamy landscape</li>
+                                <li>Cubist (60%) + Abstract (40%) = Modern geometric</li>
+                                <li>Great Wave (80%) + Watercolor (20%) = Soft Japanese style</li>
+                            </ul>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Quick Presets</h3>
+                            <p>Save time with our professionally tuned presets:</p>
+                            <table class="presets-table">
+                                <tr>
+                                    <th>Preset</th>
+                                    <th>Settings</th>
+                                    <th>Best For</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>Subtle</strong></td>
+                                    <td>Intensity: 40%, Edge: 70%</td>
+                                    <td>Gentle artistic touch, professional use</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Balanced</strong></td>
+                                    <td>Intensity: 60%, Edge: 50%</td>
+                                    <td>General purpose, recommended starting point</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Intense</strong></td>
+                                    <td>Intensity: 90%, Edge: 30%</td>
+                                    <td>Strong artistic effect, creative projects</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Artistic</strong></td>
+                                    <td>Intensity: 80%, Edge: 20%</td>
+                                    <td>Maximum creativity, abstract results</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Batch Processing (Pro/Enterprise)</h3>
+                            <p>Process multiple videos simultaneously:</p>
+                            <div class="code-block">
+                                <pre><code>1. Navigate to Batch Processor
+2. Upload multiple video files (up to 10/unlimited)
+3. Select same style for all or individual styles
+4. Configure quality settings
+5. Click "Process All"
+6. Download as ZIP file when complete</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recording & Export -->
+                    <section id="recording" class="doc-section">
+                        <h2>Recording & Export</h2>
+
+                        <div class="doc-card">
+                            <h3>Recording Video</h3>
+                            <div class="step-by-step">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <h4>Start Processing</h4>
+                                        <p>Ensure your video is processing with the desired style</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <h4>Click Record Button</h4>
+                                        <p>Recording timer will appear in top-right corner</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <h4>Stop When Ready</h4>
+                                        <p>Click the stop button to end recording</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">4</span>
+                                    <div class="step-content">
+                                        <h4>Download Automatically</h4>
+                                        <p>Video downloads in WebM format</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Quality Settings</h3>
+                            <table class="quality-table">
+                                <tr>
+                                    <th>Quality</th>
+                                    <th>Resolution</th>
+                                    <th>Bitrate</th>
+                                    <th>File Size (1 min)</th>
+                                </tr>
+                                <tr>
+                                    <td>Low</td>
+                                    <td>720p</td>
+                                    <td>2 Mbps</td>
+                                    <td>~15 MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Medium</td>
+                                    <td>1080p</td>
+                                    <td>3.5 Mbps</td>
+                                    <td>~26 MB</td>
+                                </tr>
+                                <tr>
+                                    <td>High</td>
+                                    <td>1080p+</td>
+                                    <td>5 Mbps</td>
+                                    <td>~38 MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Ultra</td>
+                                    <td>4K</td>
+                                    <td>8 Mbps</td>
+                                    <td>~60 MB</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="doc-card">
+                            <h3>Frame Capture</h3>
+                            <p>Save individual frames as high-quality images:</p>
+                            <ul>
+                                <li>Click "Capture Frame" button</li>
+                                <li>Image saves as PNG format</li>
+                                <li>Full resolution of current canvas</li>
+                                <li>Instant download</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Troubleshooting -->
+                    <section id="troubleshooting" class="doc-section">
+                        <h2>Troubleshooting</h2>
+
+                        <div class="troubleshoot-item">
+                            <h3><i class="fas fa-camera"></i> Webcam Issues</h3>
+                            <div class="problem">
+                                <strong>Problem:</strong> Camera not detected or permission denied
+                            </div>
+                            <div class="solutions">
+                                <strong>Solutions:</strong>
+                                <ol>
+                                    <li>Check browser permissions (Settings → Privacy → Camera)</li>
+                                    <li>Ensure no other application is using the camera</li>
+                                    <li>Refresh the page and allow permissions</li>
+                                    <li>Access site via HTTPS (required for camera access)</li>
+                                    <li>Try a different browser (Chrome recommended)</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="troubleshoot-item">
+                            <h3><i class="fas fa-tachometer-alt"></i> Performance Issues</h3>
+                            <div class="problem">
+                                <strong>Problem:</strong> Low FPS or laggy processing
+                            </div>
+                            <div class="solutions">
+                                <strong>Solutions:</strong>
+                                <ol>
+                                    <li>Close unnecessary browser tabs and applications</li>
+                                    <li>Reduce video resolution (use 720p instead of 1080p)</li>
+                                    <li>Lower style intensity to 60% or below</li>
+                                    <li>Enable hardware acceleration in browser settings</li>
+                                    <li>Update graphics drivers</li>
+                                    <li>Use Google Chrome for best performance</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="troubleshoot-item">
+                            <h3><i class="fas fa-download"></i> Export Failures</h3>
+                            <div class="problem">
+                                <strong>Problem:</strong> Video or image export not working
+                            </div>
+                            <div class="solutions">
+                                <strong>Solutions:</strong>
+                                <ol>
+                                    <li>Check available disk space</li>
+                                    <li>Disable browser extensions temporarily</li>
+                                    <li>Try different quality setting</li>
+                                    <li>Clear browser cache and cookies</li>
+                                    <li>Use incognito/private browsing mode</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section id="faq" class="doc-section">
+                        <h2>Frequently Asked Questions</h2>
+
+                        <div class="faq-item">
+                            <h3>Is my video data private and secure?</h3>
+                            <p>Yes! All processing happens locally in your browser using TensorFlow.js. Your videos never leave your device, and we don't collect, store, or transmit any video data.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>What video formats are supported?</h3>
+                            <p>We support MP4, MOV, AVI, and WebM formats. Maximum file size is 500MB for free users, unlimited for Pro/Enterprise.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Can I use stylized videos commercially?</h3>
+                            <p>Yes! Videos created with VideoStyleAI are yours to use commercially. Please review our Terms of Service for complete details.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>How does the free trial work?</h3>
+                            <p>The free plan includes 6 basic styles, 720p processing, and 5-minute max duration. Upgrade to Pro for unlimited features with a 14-day free trial (no credit card required).</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>What's the difference between plans?</h3>
+                            <p>Free: Basic features with limitations. Pro: 4K processing, unlimited duration, no watermarks, batch processing. Enterprise: 8K, API access, white-label, priority support.</p>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-video"></i> VideoStyleAI</h3>
+                    <p>Advanced AI-powered video style transfer for creative professionals and enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="api.html">API Reference</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VideoStyleAI. All rights reserved. Powered by Akash</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Documentation search
+        document.getElementById('docsSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('.doc-section');
+
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                section.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('.docs-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+
+                // Update active state
+                document.querySelectorAll('.docs-menu li').forEach(li => li.classList.remove('active'));
+                this.parentElement.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

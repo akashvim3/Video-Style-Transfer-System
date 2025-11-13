@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Video Style Transfer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                <span>VideoStyleAI</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="pricing.html" class="active">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>💎 Simple, Transparent Pricing</h1>
+            <p>Choose the perfect plan for your creative needs</p>
+            <div class="billing-toggle">
+                <span class="billing-label">Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="switch-slider"></span>
+                </label>
+                <span class="billing-label">Annual <span class="save-badge">Save 20%</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Free</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">Perfect for trying out the platform</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature"><i class="fas fa-check"></i> 6 Basic Art Styles</div>
+                        <div class="feature"><i class="fas fa-check"></i> 720p Video Processing</div>
+                        <div class="feature"><i class="fas fa-check"></i> 5 Minutes Max Duration</div>
+                        <div class="feature"><i class="fas fa-check"></i> Watermarked Exports</div>
+                        <div class="feature"><i class="fas fa-check"></i> Standard Processing Speed</div>
+                        <div class="feature"><i class="fas fa-check"></i> Community Support</div>
+                        <div class="feature disabled"><i class="fas fa-times"></i> Style Blending</div>
+                        <div class="feature disabled"><i class="fas fa-times"></i> Batch Processing</div>
+                        <div class="feature disabled"><i class="fas fa-times"></i> API Access</div>
+                    </div>
+                    <button class="btn btn-secondary btn-large">
+                        <i class="fas fa-rocket"></i> Get Started Free
+                    </button>
+                </div>
+
+                <!-- Pro Plan (Popular) -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount" data-monthly="29" data-annual="23">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">For professionals and content creators</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature"><i class="fas fa-check"></i> 12 Premium Art Styles</div>
+                        <div class="feature"><i class="fas fa-check"></i> 4K Video Processing</div>
+                        <div class="feature"><i class="fas fa-check"></i> Unlimited Duration</div>
+                        <div class="feature"><i class="fas fa-check"></i> No Watermarks</div>
+                        <div class="feature"><i class="fas fa-check"></i> 2x Processing Speed</div>
+                        <div class="feature"><i class="fas fa-check"></i> Priority Support</div>
+                        <div class="feature"><i class="fas fa-check"></i> Advanced Style Blending</div>
+                        <div class="feature"><i class="fas fa-check"></i> Batch Processing (10 videos)</div>
+                        <div class="feature"><i class="fas fa-check"></i> Custom Presets</div>
+                    </div>
+                    <button class="btn btn-primary btn-large">
+                        <i class="fas fa-crown"></i> Upgrade to Pro
+                    </button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount" data-monthly="99" data-annual="79">99</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">For teams and businesses</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature"><i class="fas fa-check"></i> Unlimited Art Styles</div>
+                        <div class="feature"><i class="fas fa-check"></i> 8K Video Processing</div>
+                        <div class="feature"><i class="fas fa-check"></i> Unlimited Everything</div>
+                        <div class="feature"><i class="fas fa-check"></i> White-label Options</div>
+                        <div class="feature"><i class="fas fa-check"></i> 5x Processing Speed</div>
+                        <div class="feature"><i class="fas fa-check"></i> 24/7 Premium Support</div>
+                        <div class="feature"><i class="fas fa-check"></i> Advanced Style Blending</div>
+                        <div class="feature"><i class="fas fa-check"></i> Unlimited Batch Processing</div>
+                        <div class="feature"><i class="fas fa-check"></i> Full API Access</div>
+                        <div class="feature"><i class="fas fa-check"></i> Custom Style Training</div>
+                        <div class="feature"><i class="fas fa-check"></i> Team Collaboration</div>
+                        <div class="feature"><i class="fas fa-check"></i> Dedicated Account Manager</div>
+                    </div>
+                    <button class="btn btn-secondary btn-large">
+                        <i class="fas fa-building"></i> Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-table-section">
+        <div class="container">
+            <h2 class="section-title">Detailed Feature Comparison</h2>
+            <div class="table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Free</th>
+                            <th>Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Art Styles</strong></td>
+                            <td>6 Basic Styles</td>
+                            <td>12 Premium Styles</td>
+                            <td>Unlimited + Custom</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Video Resolution</strong></td>
+                            <td>Up to 720p</td>
+                            <td>Up to 4K</td>
+                            <td>Up to 8K</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max Video Duration</strong></td>
+                            <td>5 minutes</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Processing Speed</strong></td>
+                            <td>Standard (15 FPS)</td>
+                            <td>Fast (30 FPS)</td>
+                            <td>Ultra Fast (60 FPS)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Watermark</strong></td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Style Blending</strong></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Batch Processing</strong></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td>10 videos/batch</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Access</strong></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cloud Storage</strong></td>
+                            <td>1 GB</td>
+                            <td>50 GB</td>
+                            <td>500 GB</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support</strong></td>
+                            <td>Community</td>
+                            <td>Email (24h)</td>
+                            <td>24/7 Priority</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="pricing-faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Can I change plans anytime?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can upgrade, downgrade, or cancel your plan at any time. Changes take effect immediately, and we'll prorate any charges or refunds.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for Enterprise plans.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Is there a free trial for paid plans?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a 14-day free trial for the Pro plan. No credit card required. You can cancel anytime during the trial period.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>What happens to my data if I cancel?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your data remains accessible for 30 days after cancellation. You can download all your videos and settings during this period. After 30 days, data is permanently deleted.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="pricing-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Videos?</h2>
+            <p>Join thousands of creators using VideoStyleAI</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary btn-large">
+                    <i class="fas fa-rocket"></i> Start Free Trial
+                </button>
+                <button class="btn btn-secondary btn-large">
+                    <i class="fas fa-calendar"></i> Schedule Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-video"></i> VideoStyleAI</h3>
+                    <p>Advanced AI-powered video style transfer for creative professionals and enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="api.html">API Reference</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VideoStyleAI. All rights reserved. Powered by Akash</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+            <i class="fas fa-chevron-down" id="chatbotToggle"></i>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <i class="fas fa-robot"></i>
+                    <p>Hello! Need help choosing a plan? I can help you decide!</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <label for="chatInput"></label><input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <button class="chatbot-trigger" onclick="openChatbot()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Billing toggle functionality
+        const billingToggle = document.getElementById('billingToggle');
+        const priceAmounts = document.querySelectorAll('.amount');
+
+        billingToggle.addEventListener('change', () => {
+            priceAmounts.forEach(amount => {
+                const monthly = amount.getAttribute('data-monthly');
+                const annual = amount.getAttribute('data-annual');
+
+                if (billingToggle.checked && annual) {
+                    amount.textContent = annual;
+                } else if (monthly) {
+                    amount.textContent = monthly;
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
