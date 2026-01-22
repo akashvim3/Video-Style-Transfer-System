@@ -121,8 +121,8 @@ video-style-transfer/
 
 1. **Download the project**
 
-git clone https://github.com/akashvim3/video-style-transfer.git
-cd video-style-transfer
+       git clone https://github.com/akashvim3/video-style-transfer.git
+       cd video-style-transfer
 
 1. **Open in browser**
 - Simply open `index.html` in your web browser
@@ -244,9 +244,13 @@ Grain: 0.2
 
 // Initialize style transfer
 const transfer = new VideoStyleTransfer();
-await transfer.initialize();// Apply style
+await transfer.initialize();
+
+// Apply style
 transfer.selectedStyle = 'starry-night';
-transfer.styleIntensity = 0.8;// Start processing
+transfer.styleIntensity = 0.8;
+
+// Start processing
 await transfer.startWebcam();
 transfer.processFrame();
 
@@ -254,8 +258,12 @@ transfer.processFrame();
 
 // Start recording
 const recorder = new VideoRecorder();
-await recorder.startRecording(canvasElement);// Stop and save
-recorder.stopRecording();// Export with quality
+await recorder.startRecording(canvasElement);
+
+// Stop and save
+recorder.stopRecording();
+
+// Export with quality
 const blob = await recorder.exportWithQuality(canvas, 'high');
 
 ### Filters API
